@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный дневник</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Личный дневник</h1>
+
+    <nav>
+        <a href="{{ url_for('index') }}">Главная</a>
+        <a href="{{ url_for('add_entry') }}">Новая запись</a>
+        <a href="{{ url_for('filter_week') }}">За неделю</a>
+    </nav>
+
+    <form action="{{ url_for('search') }}" method="GET">
+        <input type="text" name="q" placeholder="Поиск...">
+        <button type="submit">Найти</button>
+    </form>
+</header>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer>
+    <p>Автор: твое имя</p>
+</footer>
+
+</body>
+</html>
